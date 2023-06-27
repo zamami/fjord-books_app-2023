@@ -4,7 +4,6 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '3.2.1'
-gem 'i18n_generators'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
@@ -67,8 +66,10 @@ group :development do
   # gem "spring"
 
   gem 'erb_lint', require: false
+  gem 'i18n_generators'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
+
 end
 
 group :test do

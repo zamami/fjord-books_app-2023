@@ -1,7 +1,5 @@
 # fjord-books_app-2023
 
-(実験用に編集)
-
 フィヨルドブートキャンプのRailsプラクティスの提出物（「Rails の i18n を理解する」以降の提出物）をまとめるリポジトリです。
 
 このサンプルアプリケーションは五十嵐邦明氏による「 [Railsの教科書](http://igarashikuniaki.net/rails_textbook/) 」で説明されている書籍管理アプリ（Rails 7版）をベースとしています。
