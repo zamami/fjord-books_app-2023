@@ -31,3 +31,15 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    crud:
+      messages:
+        created: "Book was successfully created."
+        updated: "Book was successfully updated."
+        deleted: "Book was successfully destroyed."
+    attributes:
+      book:
+        book: book
+  errors:
+    template:
+      header: "%{model} failed to saved:"
