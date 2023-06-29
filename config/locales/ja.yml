@@ -10,9 +10,9 @@ ja:
           has_many: "%{record}が存在しているので削除できません"
     crud:
       messages:
-        created: 本を新規登録しました
-        updated: 更新しました
-        deleted: 本を削除しました
+        created: "%{model}を新規登録しました"
+        updated: "%{model}を更新しました"
+        deleted: "%{model}を削除しました"
   date:
     abbr_day_names:
     - 日

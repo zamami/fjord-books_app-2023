@@ -34,9 +34,9 @@ en:
   activerecord:
     crud:
       messages:
-        created: "Book was successfully created."
-        updated: "Book was successfully updated."
-        deleted: "Book was successfully destroyed."
+        created: "%{model} was successfully created."
+        updated: "%{model} was successfully updated."
+        deleted: "%{model} was successfully destroyed."
     attributes:
       book:
         book: book

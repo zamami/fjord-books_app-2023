@@ -1,4 +1,4 @@
-<h1><%= t('pages.new') %></h1>
+<h1><%= t('pages.new', model: Book.model_name.human ) %></h1>
 
 <%= render "form", book: @book %>
 

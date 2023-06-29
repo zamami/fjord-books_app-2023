@@ -25,7 +25,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to book_url(@book), notice: t('activerecord.crud.messages.created') }
+        format.html { redirect_to book_url(@book), notice: t('activerecord.crud.messages.created', model: Book.model_name.human) }
         format.json { render :show, status: :created, location: @book }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class BooksController < ApplicationController
   def update
     respond_to do |format|
       if @book.update(book_params)
-        format.html { redirect_to book_url(@book), notice: t('activerecord.crud.messages.updated') }
+        format.html { redirect_to book_url(@book), notice: t('activerecord.crud.messages.updated', model: Book.model_name.human) }
         format.json { render :show, status: :ok, location: @book }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to books_url, notice: t('activerecord.crud.messages.deleted') }
+      format.html { redirect_to books_url, notice: t('activerecord.crud.messages.deleted', model: Book.model_name.human) }
       format.json { head :no_content }
     end
   end
