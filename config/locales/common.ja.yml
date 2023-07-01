@@ -1,0 +1,12 @@
+ja:
+  button:
+    edit: "%{model}の編集"
+    back: 戻る
+    show: "%{model}の詳細"
+    index: "%{model}一覧"
+    destroy: "%{model}の削除"
+    new: "%{model}の新規登録"
+  pages:
+    index: "%{model}の一覧"
+    new: "%{model}の登録"
+    edit: "%{model}の編集"

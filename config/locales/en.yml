@@ -31,3 +31,16 @@
 
 en:
   hello: "Hello world"
+  activerecord:
+    crud:
+      messages:
+        created: "%{model} was successfully created."
+        updated: "%{model} was successfully updated."
+        deleted: "%{model} was successfully destroyed."
+  errors:
+    template:
+      header: "%{model} failed to saved:"
+  pages:
+    index: "%{model} Index" 
+    new: "%{model} New"
+    edit: "%{model} Edit"
