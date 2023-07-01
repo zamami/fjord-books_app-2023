@@ -37,9 +37,10 @@ en:
         created: "%{model} was successfully created."
         updated: "%{model} was successfully updated."
         deleted: "%{model} was successfully destroyed."
-    attributes:
-      book:
-        book: book
   errors:
     template:
       header: "%{model} failed to saved:"
+  pages:
+    index: "%{model} Index" 
+    new: "%{model} New"
+    edit: "%{model} Edit"
