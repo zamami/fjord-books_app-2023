@@ -19,6 +19,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :profile %><br />
+    <%= f.text_area :profile, autocomplete: "profile" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autocomplete: "email" %>
   </div>
