@@ -44,6 +44,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     books_path(resource)
   end
 
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[name zip])
+  end
+
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
   #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
