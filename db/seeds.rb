@@ -35,7 +35,7 @@ Book.create!(
 
 puts '初期データの投入が完了しました。' # rubocop:disable Rails/Output
 
-30.times do |n|
+30.times do |_n|
   User.create!(
     name: Faker::Name.unique.last_name,
     zip: Faker::Number.number,
