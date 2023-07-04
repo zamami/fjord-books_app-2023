@@ -23,3 +23,17 @@ ja:
         zip: 郵便番号  #g
         password: パスワード
         password_confirmation: パスワード（確認）
+
+  link:
+    show_book: "%{model}の詳細"
+    new_book: "%{model}の登録"
+    edit_book: "%{model}の編集"
+    index_book: "%{model}の一覧"
+
+  submit:
+    delete: "%{model}の削除"
+
+  message:
+    created: "%{model}を新規登録しました"
+    updated: "%{model}を更新しました"
+    deleted: "%{model}を削除しました"

@@ -1,14 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Books</h1>
+<h1>本の一覧</h1>
 
 <div id="books">
   <% @books.each do |book| %>
     <%= render book %>
     <p>
-      <%= link_to "Show this book", book %>
+      <%= link_to t('link.show_book', model: Book.model_name.human ), book %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New book", new_book_path %>
+<%= link_to t('link.new_book', model: Book.model_name.human ), new_book_path %>

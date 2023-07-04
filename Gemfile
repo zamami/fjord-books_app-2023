@@ -45,7 +45,6 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 gem 'bootsnap', require: false
 gem 'carrierwave'
 gem 'devise'
-gem 'i18n_generators'
 gem 'kaminari'
 
 # Use Sass to process CSS
@@ -73,6 +72,7 @@ group :development do
   gem 'erb_lint', require: false
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
+  gem 'i18n_generators'
 end
 
 group :test do

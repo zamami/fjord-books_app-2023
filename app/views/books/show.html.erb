@@ -2,8 +2,8 @@
 <%= render @book %>
 
 <div>
-  <%= link_to "Edit this book", edit_book_path(@book) %> |
-  <%= link_to "Back to books", books_path %>
+  <%= link_to t('link.edit_book', model: Book.model_name.human ), edit_book_path(@book) %> |
+  <%= link_to t('link.index_book', model: Book.model_name.human ), books_path %>
 
-  <%= button_to "Destroy this book", @book, method: :delete %>
+  <%= button_to t('submit.delete', model: Book.model_name.human ), @book, method: :delete %>
 </div>

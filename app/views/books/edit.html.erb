@@ -1,10 +1,10 @@
-<h1>Editing book</h1>
+<h1>本の編集</h1>
 
 <%= render "form", book: @book %>
 
 <br>
 
 <div>
-  <%= link_to "Show this book", @book %> |
-  <%= link_to "Back to books", books_path %>
+  <%= link_to t('link.show_book', model: Book.model_name.human ), @book %> |
+  <%= link_to t('link.index_book', model: Book.model_name.human ), books_path %>
 </div>
