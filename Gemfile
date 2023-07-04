@@ -43,6 +43,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
+gem 'carrierwave'
+gem 'devise'
+gem 'i18n_generators'
 gem 'kaminari'
 
 # Use Sass to process CSS
@@ -78,9 +81,6 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'carrierwave'
-gem 'devise'
 
 group :development do
   gem 'letter_opener_web', '~> 2.0'

@@ -1,4 +1,4 @@
-<h1>Users#show</h1>
+<h1><%= t('user_page.show', model: User.model_name.human) %></h1>
 <p>名前： <%= @user.name %> </p>
 <p>郵便番号： <%= @user.zip %> </p>
 <p>住所： <%= @user.address %> </p>
