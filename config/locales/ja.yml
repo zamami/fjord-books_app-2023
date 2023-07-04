@@ -198,6 +198,7 @@ ja:
     forget_my_password: パスワードを忘れた?
     not_receive_confirmation_instructions?: 確認事項の指示が届いてませんか？
     not_receive_unlock_instructions?: ロック解除の指示が届いていませんか？
+    change_my_password: パスワードを変更する
 
   user_page:
     index: "%{model}一覧"
@@ -211,6 +212,7 @@ ja:
       login: ログイン
       sign_up: サインアップ
       password_instructions: 再設定メールの送信
+      change_password: パスワードの変更
     check_box:
       remember_me: パスワードの保存
     confirmations:
