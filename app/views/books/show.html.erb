@@ -1,5 +1,7 @@
 
-<%= render @book %>
+<div class="show-item">
+  <%= render @book %>
+</div>
 
 <div>
   <%= link_to t('link.edit_book', model: Book.model_name.human ), edit_book_path(@book) %> |

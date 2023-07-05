@@ -17,7 +17,6 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    - 
     - 1月
     - 2月
     - 3月
@@ -43,7 +42,6 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    - 
     - 1月
     - 2月
     - 3月
@@ -266,8 +264,27 @@ ja:
       send_instructions: "数分以内に、アカウントロック解除方法についての指示が含まれたメールを受け取ります。"
       send_paranoid_instructions: "アカウントが存在する場合、数分以内にアカウントロック解除方法についての指示が含まれたメールが送信されます。"
       unlocked: "アカウントが正常にロック解除されました。続行するにはサインインしてください。"
-      
-       
-
-
-    
+  views:
+    common:
+      show: "この%{name}を表示"
+      edit: "この%{name}を編集"
+      destroy: "この%{name}を削除"
+      new: "%{name}の新規作成"
+      back: "%{name}の一覧に戻る"
+      delete_confirm: よろしいですか？
+      title_index: "%{name}の一覧"
+      title_new: "%{name}の新規作成"
+      title_edit: "%{name}の編集"
+      error: エラー
+      validation_error: "%{errors}があるため、この%{name}は保存できませんでした"
+    pagination:
+      first: '« 最初'
+      last: '最後 »'
+      previous: '‹ 前'
+      next: '次 ›'
+      truncate: '…'
+  controllers:
+    common:
+      notice_create: "%{name}が作成されました。"
+      notice_update: "%{name}が更新されました。"
+      notice_destroy: "%{name}が削除されました。"
