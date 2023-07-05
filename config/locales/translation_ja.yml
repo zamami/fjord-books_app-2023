@@ -23,6 +23,7 @@ ja:
         zip: 郵便番号  #g
         password: パスワード
         password_confirmation: パスワード（確認）
+        current_password: 現在のパスワード
 
   link:
     show_book: "%{model}の詳細"
@@ -32,6 +33,8 @@ ja:
 
   submit:
     delete: "%{model}の削除"
+    update: 更新
+    cancel_my_account: アカウントを取り消す
 
   message:
     created: "%{model}を新規登録しました"
