@@ -3,9 +3,9 @@
   <%= render @book %>
 </div>
 
-<div>
-  <%= link_to t('link.edit_book', model: Book.model_name.human ), edit_book_path(@book) %> |
-  <%= link_to t('link.index_book', model: Book.model_name.human ), books_path %>
+<nav class="page-nav">
+  <%= link_to t('views.common.edit', name: Book.model_name.human.downcase), edit_book_path(@book) %> |
+  <%= link_to t('views.common.back', name: i18n_pluralize(Book.model_name.human.downcase)), books_path %>
 
-  <%= button_to t('submit.delete', model: Book.model_name.human ), @book, method: :delete %>
-</div>
+  <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
+</nav>

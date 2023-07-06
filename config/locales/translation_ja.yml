@@ -36,7 +36,3 @@ ja:
     update: 更新
     cancel_my_account: アカウントを取り消す
 
-  message:
-    created: "%{model}を新規登録しました"
-    updated: "%{model}を更新しました"
-    deleted: "%{model}を削除しました"
