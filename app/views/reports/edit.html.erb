@@ -5,6 +5,8 @@
 <br>
 
 <nav class="page-nav">
-  <%= link_to t('views.common.show', name: Report.model_name.human.downcase), @report %> |
-  <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
+  <% if current_user.id == @report.user_id %>
+    <%= link_to t('views.common.show', name: Report.model_name.human.downcase), @report %> |
+    <%= link_to t('views.common.back', name: i18n_pluralize(Report.model_name.human.downcase)), reports_path %>
+  <% end %>
 </nav>
