@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[destroy]
 
@@ -7,8 +9,7 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/1 or /comments/1.json
-  def show
-  end
+  def show; end
 
   # GET /comments/new
   def new
@@ -16,8 +17,7 @@ class CommentsController < ApplicationController
   end
 
   # GET /comments/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /comments or /comments.json
   def create
@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to comment_url(@comment), notice: "Comment was successfully updated." }
+        format.html { redirect_to comment_url(@comment), notice: 'Comment was successfully updated.' }
       else
         format.html { render :edit, status: :unprocessable_entity }
       end
@@ -45,13 +45,14 @@ class CommentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def comment_params
-      params.require(:comment).permit(:body)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def comment_params
+    params.require(:comment).permit(:body)
+  end
 end

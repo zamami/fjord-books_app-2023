@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
   before_action :set_report, only: %i[show edit update destroy]
   before_action :check_author, only: %i[edit update destroy]
@@ -10,6 +12,8 @@ class ReportsController < ApplicationController
   # GET /reports/1 or /reports/1.json
   def show
     @report = Report.find(params[:id])
+    # user_id = @report.comments.pick(:user_id)
+    # @comment_user = User.find(user_id)
   end
 
   # GET /reports/new
@@ -70,6 +74,6 @@ class ReportsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def report_params
-    params.require(:report).permit(:title, :content)
+    params.require(:report).permit(:title, :content, :comment)
   end
 end
