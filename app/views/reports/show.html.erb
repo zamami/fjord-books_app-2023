@@ -13,3 +13,8 @@
     <%= button_to t('views.common.destroy', name: Report.model_name.human.downcase), @report, method: :delete %>
   <% end %>
 </nav>
+
+<h2><%= Comment.model_name.human %></h2>
+
+<%= render partial: 'comments/comments', locals: {commentable: @report} %>
+<%= render partial: 'comments/form', locals: {commentable: @report} %>
