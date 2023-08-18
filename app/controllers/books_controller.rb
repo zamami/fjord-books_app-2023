@@ -3,23 +3,18 @@
 class BooksController < ApplicationController
   before_action :set_book, only: %i[show edit update destroy]
 
-  # GET /books or /books.json
   def index
     @books = Book.order(:id).page(params[:page])
   end
 
-  # GET /books/1 or /books/1.json
   def show; end
 
-  # GET /books/new
   def new
     @book = Book.new
   end
 
-  # GET /books/1/edit
   def edit; end
 
-  # POST /books or /books.json
   def create
     @book = Book.new(book_params)
 
@@ -34,7 +29,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # PATCH/PUT /books/1 or /books/1.json
   def update
     respond_to do |format|
       if @book.update(book_params)
@@ -47,7 +41,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # DELETE /books/1 or /books/1.json
   def destroy
     @book.destroy
 
