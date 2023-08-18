@@ -5,13 +5,11 @@ class ReportsController < ApplicationController
   before_action :check_author, only: %i[edit update destroy]
 
   def index
-    @reports = Report.all
+    @reports = Report.order(:id).page(params[:page])
   end
 
   def show
     @report = Report.find(params[:id])
-    # user_id = @report.comments.pick(:user_id)
-    # @comment_user = User.find(user_id)
   end
 
   def new
@@ -23,9 +21,7 @@ class ReportsController < ApplicationController
   end
 
   def create
-    @report = Report.new(report_params)
-    @report.user_id = current_user.id
-
+    @report = current_user.reports.new(report_params)
     respond_to do |format|
       if @report.save
         format.html { redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human) }
@@ -67,6 +63,6 @@ class ReportsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def report_params
-    params.require(:report).permit(:title, :content, :comment)
+    params.require(:report).permit(:title, :content)
   end
 end
