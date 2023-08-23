@@ -6,4 +6,9 @@ class Report < ApplicationRecord
 
   belongs_to :user
   has_many :comments, as: :commentable, dependent: :destroy
+
+  def self_created_report?(current_user)
+    user == current_user
+  end
 end
+
