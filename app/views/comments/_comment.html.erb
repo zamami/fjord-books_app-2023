@@ -1,6 +1,6 @@
 <div id="<%= dom_id comment %>">
   <p>
-    <strong>Comment:</strong>
+    <strong><%= Comment.human_attribute_name(:body) %>:</strong>
     <%= comment.comment %>
   </p>
 

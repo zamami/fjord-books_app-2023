@@ -3,8 +3,9 @@
 <%= render @comment %>
 
 <div>
-  <%= link_to "Edit this comment", edit_comment_path(@comment) %> |
-  <%= link_to "Back to comments", comments_path %>
+  <%= link_to t('views.common.edit', name: Comment.model_name.human.downcase), edit_book_path(@comment) %> |
+  <%= link_to t('views.common.back', name: i18n_pluralize(Comment.model_name.human.downcase)), comments_path %>
 
-  <%= button_to "Destroy this comment", @comment, method: :delete %>
+  <%= button_to t('views.common.destroy', name: Comment.model_name.human.downcase), @comment, method: :delete %>
+
 </div>
