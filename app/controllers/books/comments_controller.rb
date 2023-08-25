@@ -8,4 +8,11 @@ class Books::CommentsController < CommentsController
   def set_commentable
     @commentable = Book.find(params[:book_id])
   end
+
+  def render_commentable
+    @book = @commentable
+    flash.now[:alert] = @comment.errors.full_messages_for(:body).first
+    @alert = flash.now[:alert]
+    render 'books/show', alert: @alert
+  end
 end
