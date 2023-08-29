@@ -11,8 +11,7 @@ class Reports::CommentsController < CommentsController
 
   def render_commentable
     @report = @commentable
-    flash.now[:alert] = @comment.errors.full_messages_for(:body).first
-    @alert = flash.now[:alert]
-    render 'reports/show', alert: @alert
+    flash.now[:no_comment] = @comment.errors.full_messages_for(:body).first
+    render 'reports/show'
   end
 end

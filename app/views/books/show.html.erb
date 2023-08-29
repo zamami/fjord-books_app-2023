@@ -1,9 +1,8 @@
 <h1><%= t('views.common.title_show', name: Book.model_name.human) %></h1>
 
-<% if alert.present? %>
-  <p id="alert"><%= alert %></p>
+<% if flash[:no_comment].present? %>
+  <p id="alert"><%= flash[:no_comment] %></p>
 <% end %>
-<%= alert %>
 
 <div class="show-item">
   <%= render partial: 'books/book', locals: { book: @book } %>
