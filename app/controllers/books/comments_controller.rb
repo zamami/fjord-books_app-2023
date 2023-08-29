@@ -12,6 +12,6 @@ class Books::CommentsController < CommentsController
   def render_commentable
     @book = @commentable
     flash.now[:alert] = @comment.errors.full_messages_for(:body).first
-    render 'books/show'
+    render 'books/show', status: :unprocessable_entity
   end
 end

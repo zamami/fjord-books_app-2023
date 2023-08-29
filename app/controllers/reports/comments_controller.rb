@@ -12,6 +12,6 @@ class Reports::CommentsController < CommentsController
   def render_commentable
     @report = @commentable
     flash.now[:no_comment] = @comment.errors.full_messages_for(:body).first
-    render 'reports/show'
+    render 'reports/show', status: :unprocessable_entity
   end
 end
