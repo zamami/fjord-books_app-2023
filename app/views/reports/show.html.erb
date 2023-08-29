@@ -1,5 +1,11 @@
 <h1><%= t('views.common.title_show', name: Report.model_name.human) %></h1>
 
+<% if flash[:alert].present? %>
+  <p id="alert"><%= flash[:alert]%></p>
+<% else %>
+  <%= Time.now %>
+<% end %>
+
 <div class="show-item">
   <%= render partial: 'reports/report', locals: { report: @report } %>
 </div>
