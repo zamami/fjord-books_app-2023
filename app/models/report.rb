@@ -34,4 +34,33 @@ class Report < ApplicationRecord
   def created_on
     created_at.to_date
   end
+
+  def report_mention_save
+    ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
+      save!
+      mention_create_or_update
+    end
+  end
+
+  def report_mention_update(params)
+    ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
+      update!(params)
+      mention_create_or_update
+    end
+  end
+
+  def mention_create_or_update
+    already_mentioned_reports = mentioning_report_ids.empty? ? [] : [id].product(mentioning_report_ids)
+    mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq.map(&:to_i)
+    now_mention_reports = mention_ids.empty? ? [] : mention_ids.map { |mention_id| [id, mention_id] }
+    delete_mentions = already_mentioned_reports - now_mention_reports
+    delete_mentions.each do |array|
+      Mention.where(mentioning_report_id: array[0], mentioned_report_id: array[1]).find_each(&:destroy!)
+    end
+
+    create_mentions = now_mention_reports - already_mentioned_reports
+    create_mentions.each do |array|
+      Mention.create!(mentioning_report_id: array[0], mentioned_report_id: array[1])
+    end
+  end
 end
