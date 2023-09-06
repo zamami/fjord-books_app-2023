@@ -26,6 +26,9 @@ class Report < ApplicationRecord
 
   validates :title, presence: true
   validates :content, presence: true
+  validate do
+    errors.add(:content, 'に存在しない言及先が含まれています') if exist_report?(content)
+  end
 
   def editable?(target_user)
     user == target_user
@@ -39,6 +42,8 @@ class Report < ApplicationRecord
     ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
       save!
       mention_create_or_update
+    rescue ActiveRecord::RecordInvalid => e
+      e.record
     end
   end
 
@@ -46,6 +51,8 @@ class Report < ApplicationRecord
     ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
       update!(params)
       mention_create_or_update
+    rescue ActiveRecord::RecordInvalid => e
+      e.record
     end
   end
 
@@ -57,10 +64,14 @@ class Report < ApplicationRecord
     delete_mentions.each do |array|
       Mention.where(mentioning_report_id: array[0], mentioned_report_id: array[1]).find_each(&:destroy!)
     end
-
     create_mentions = now_mention_reports - already_mentioned_reports
     create_mentions.each do |array|
       Mention.create!(mentioning_report_id: array[0], mentioned_report_id: array[1])
     end
+  end
+
+  def exist_report?(content)
+    mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq.map(&:to_i)
+    mention_ids.map { |mention_id| Report.exists?(id: mention_id) }.include?(false)
   end
 end

@@ -20,7 +20,8 @@ class ReportsController < ApplicationController
 
   def create
     @report = current_user.reports.new(report_params)
-    if @report.report_mention_save
+    rescue_value = @report.report_mention_save
+    if rescue_value.blank?
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new, status: :unprocessable_entity
@@ -28,7 +29,8 @@ class ReportsController < ApplicationController
   end
 
   def update
-    if @report.report_mention_update(report_params)
+    rescue_value = @report.report_mention_update(report_params)
+    if rescue_value.blank?
       redirect_to @report, notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
       render :edit, status: :unprocessable_entity
