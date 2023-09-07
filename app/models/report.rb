@@ -58,7 +58,7 @@ class Report < ApplicationRecord
 
   def mention_create_or_update
     already_mentioned_reports = mentioning_report_ids.empty? ? [] : [id].product(mentioning_report_ids)
-    mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq.map(&:to_i)
+    mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
     now_mention_reports = mention_ids.empty? ? [] : mention_ids.map { |mention_id| [id, mention_id] }
     delete_mentions = already_mentioned_reports - now_mention_reports
     delete_mentions.each do |array|
@@ -71,7 +71,7 @@ class Report < ApplicationRecord
   end
 
   def exist_report?(content)
-    mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.uniq.map(&:to_i)
+    mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
     mention_ids.map { |mention_id| Report.exists?(id: mention_id) }.include?(false)
   end
 end

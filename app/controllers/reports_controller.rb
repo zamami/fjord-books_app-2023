@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
 
   def show
     @report = Report.find(params[:id])
+    @mentions = Report.find(params[:id]).mentioned_reports
   end
 
   # GET /reports/new
@@ -20,10 +21,10 @@ class ReportsController < ApplicationController
 
   def create
     @report = current_user.reports.new(report_params)
-    rescue_value = @report.report_mention_save
-    if rescue_value.blank?
+    return_value = @report.report_mention_save
+    if return_value.instance_of?(Array) # 保存、更新が成功すると言及ありなしかかわらずArrayが戻り値になる
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
-    else
+    else # Reportインスタンが戻り値になる
       render :new, status: :unprocessable_entity
     end
   end
