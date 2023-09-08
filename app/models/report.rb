@@ -43,7 +43,8 @@ class Report < ApplicationRecord
       save!
       mention_create_or_update
     rescue ActiveRecord::RecordInvalid => e
-      e.record
+      logger.error e.message
+      logger.error e.backtrace.join("\n")
     end
   end
 
@@ -52,7 +53,8 @@ class Report < ApplicationRecord
       update!(params)
       mention_create_or_update
     rescue ActiveRecord::RecordInvalid => e
-      e.record
+      logger.error e.message
+      logger.error e.backtrace.join("\n")
     end
   end
 
