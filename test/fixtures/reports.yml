@@ -9,3 +9,13 @@
 #  user: two
 #  title: MyString
 #  content: MyText
+
+Alice_report: #id: 985287285,
+  user: Alice
+  title: my name is Alice!
+  content: Hello!
+
+Bob_report: #id: 144775460,
+  user: Bob
+  title: my name is Bob!
+  content: Hi!
