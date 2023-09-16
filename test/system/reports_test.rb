@@ -4,12 +4,18 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:one)
+    @report = reports(:Alice_report)
+
+    visit root_url
+    fill_in 'Eメール', with: 'alice@example.com'
+    fill_in 'パスワード', with: 'password'
+    click_button 'ログイン'
+
   end
 
   test 'visiting the index' do
     visit reports_url
-    assert_selector 'h1', text: 'Reports'
+    assert_selector 'h1', text: '日報の一覧'
   end
 
   test 'should create report' do
