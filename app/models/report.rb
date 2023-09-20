@@ -38,27 +38,18 @@ class Report < ApplicationRecord
     created_at.to_date
   end
 
-  def report_mention_save
-    ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
+  def save_with_mentions
+    ActiveRecord::Base.transaction do
       save!
-      mention_create_or_update
+      update_mentions
     rescue ActiveRecord::RecordInvalid => e
       logger.error e.message
       logger.error e.backtrace.join("\n")
+      true if e.nil?
     end
   end
 
-  def report_mention_update(params)
-    ActiveRecord::Base.transaction(joinable: false, requires_new: true) do
-      update!(params)
-      mention_create_or_update
-    rescue ActiveRecord::RecordInvalid => e
-      logger.error e.message
-      logger.error e.backtrace.join("\n")
-    end
-  end
-
-  def mention_create_or_update
+  def update_mentions
     already_mentioned_reports = mentioning_report_ids.empty? ? [] : [id].product(mentioning_report_ids)
     mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
     now_mention_reports = mention_ids.empty? ? [] : mention_ids.map { |mention_id| [id, mention_id] }
