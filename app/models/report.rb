@@ -49,22 +49,17 @@ class Report < ApplicationRecord
     end
   end
 
+  ID_REGEXP = %r{http://localhost:3000/reports/(\d+)}
   def update_mentions
-    already_mentioned_reports = mentioning_report_ids.empty? ? [] : [id].product(mentioning_report_ids)
-    mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
-    now_mention_reports = mention_ids.empty? ? [] : mention_ids.map { |mention_id| [id, mention_id] }
-    delete_mentions = already_mentioned_reports - now_mention_reports
-    delete_mentions.each do |array|
-      Mention.where(mentioning_report_id: array[0], mentioned_report_id: array[1]).find_each(&:destroy!)
-    end
-    create_mentions = now_mention_reports - already_mentioned_reports
-    create_mentions.each do |array|
-      Mention.create!(mentioning_report_id: array[0], mentioned_report_id: array[1])
+    mentioning_references.destroy_all
+    mention_ids = content.scan(ID_REGEXP).flatten.map(&:to_i).uniq
+    mention_ids.each do |mention_id|
+      Mention.create!(mentioning_report_id: id, mentioned_report_id: mention_id)
     end
   end
 
   def exist_report?(content)
     mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
-    mention_ids.map { |mention_id| Report.exists?(id: mention_id) }.include?(false)
+    Report.where(id: mention_ids).count != mention_ids.length
   end
 end
