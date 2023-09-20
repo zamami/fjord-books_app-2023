@@ -59,7 +59,7 @@ class Report < ApplicationRecord
   end
 
   def exist_report?(content)
-    mention_ids = content.scan(%r{http://localhost:3000/reports/(\d+)}).flatten.map(&:to_i).uniq
+    mention_ids = content.scan(ID_REGEXP).flatten.map(&:to_i).uniq
     Report.where(id: mention_ids).count != mention_ids.length
   end
 end
