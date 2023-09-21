@@ -23,7 +23,7 @@ class ReportsController < ApplicationController
     @report = current_user.reports.new(report_params)
     if @report.save_with_mentions
       redirect_to @report, notice: t('controllers.common.notice_create', name: Report.model_name.human)
-    else # Reportインスタンが戻り値になる
+    else
       render :new, status: :unprocessable_entity
     end
   end
