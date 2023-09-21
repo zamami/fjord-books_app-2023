@@ -19,7 +19,6 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'メールアドレスとパスワードでログインして日報を書く' do
     click_on '日報'
-    # assert_selector 'h1', text: '日報'
     click_on '日報の新規作成'
     fill_in 'タイトル', with: 'はじめての日報'
     fill_in '内容', with: '今日はminiテストについて学びました！'
