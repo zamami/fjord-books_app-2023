@@ -4,13 +4,12 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:Alice_report)
-
-    visit root_url
+    @report = reports(:alice_report)
+    visit root_path
     fill_in 'Eメール', with: 'alice@example.com'
     fill_in 'パスワード', with: 'password'
-    click_button 'ログイン'
-
+    click_on 'ログイン'
+    assert_text 'ログインしました。' # CapybaraにTurbolinksの完了を待たせる
   end
 
   test 'visiting the index' do

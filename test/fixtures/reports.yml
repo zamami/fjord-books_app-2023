@@ -10,12 +10,12 @@
 #  title: MyString
 #  content: MyText
 
-Alice_report: #id: 985287285,
-  user: Alice
-  title: my name is Alice!
+alice_report: #id: 985287285,
+  user: alice
+  title: my name is alice!
   content: Hello!
 
-Bob_report: #id: 144775460,
-  user: Bob
-  title: my name is Bob!
+bob_report: #id: 144775460,
+  user: bob
+  title: my name is bob!
   content: Hi!
