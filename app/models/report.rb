@@ -39,13 +39,11 @@ class Report < ApplicationRecord
   end
 
   def save_with_mentions
-    ActiveRecord::Base.transaction do
+    return false unless valid?
+
+    transaction do
       save!
       update_mentions
-    rescue ActiveRecord::RecordInvalid => e
-      logger.error e.message
-      logger.error e.backtrace.join("\n")
-      true if e.nil?
     end
   end
 
