@@ -1,11 +1,38 @@
 ja:
   activerecord:
     models:
-      book: 本
+      book: 本  #g
+      user: ユーザー  #g
 
     attributes:
       book:
-        author: 著者
-        memo: メモ
-        picture: 画像
-        title: タイトル
+        author: 著者  #g
+        memo: メモ  #g
+        picture: 写真  #g
+        title: タイトル  #g
+
+      user:
+        address: 住所  #g
+        email: Eメール  #g
+        encrypted_password: 暗号化されたパスワード  #g
+        name: 名前  #g
+        profile: プロフィール  #g
+        remember_created_at: で作成されたことを覚えておいてください  #g
+        reset_password_sent_at: に送信されたパスワードのリセット  #g
+        reset_password_token: パスワードトークンをリセットする  #g
+        zip: 郵便番号  #g
+        password: パスワード
+        password_confirmation: パスワード（確認）
+        current_password: 現在のパスワード
+
+  link:
+    show_book: "%{model}の詳細"
+    new_book: "%{model}の登録"
+    edit_book: "%{model}の編集"
+    index_book: "%{model}の一覧"
+
+  submit:
+    delete: "%{model}の削除"
+    update: 更新
+    cancel_my_account: アカウントを取り消す
+

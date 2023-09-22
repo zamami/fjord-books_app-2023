@@ -43,6 +43,9 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
+gem 'carrierwave'
+gem 'devise'
+gem 'kaminari'
 
 # Use Sass to process CSS
 # gem "sassc-rails"
@@ -53,6 +56,7 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mingw x64_mingw]
+  gem 'faker'
 end
 
 group :development do
@@ -66,7 +70,6 @@ group :development do
   # gem "spring"
 
   gem 'erb_lint', require: false
-  gem 'faker'
   gem 'i18n_generators'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
@@ -79,5 +82,6 @@ group :test do
   gem 'webdrivers'
 end
 
-gem 'carrierwave'
-gem 'kaminari'
+group :development do
+  gem 'letter_opener_web', '~> 2.0'
+end

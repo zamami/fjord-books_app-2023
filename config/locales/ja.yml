@@ -17,7 +17,6 @@ ja:
     - 金
     - 土
     abbr_month_names:
-    -
     - 1月
     - 2月
     - 3月
@@ -43,7 +42,6 @@ ja:
       long: "%Y年%m月%d日(%a)"
       short: "%m/%d"
     month_names:
-    -
     - 1月
     - 2月
     - 3月
@@ -110,6 +108,14 @@ ja:
       too_long: は%{count}文字以内で入力してください
       too_short: は%{count}文字以上で入力してください
       wrong_length: は%{count}文字で入力してください
+      already_confirmed: "は既に確認済みです。サインインをお試しください。"
+      confirmation_period_expired: "は %{period} 以内に確認する必要があります。新しい確認メールをリクエストしてください。"
+      expired: "の有効期限が切れました。新しいものをリクエストしてください。"
+      not_found: "が見つかりません"
+      not_locked: "はロックされていません"
+      not_saved:
+        one: "1件のエラーにより、この %{resource} の保存ができませんでした:"
+        other: "%{count}件のエラーにより、この %{resource} の保存ができませんでした:"
     template:
       body: 次の項目を確認してください
       header: "%{model}に%{count}個のエラーが発生しました"
@@ -181,6 +187,83 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  link:
+    edit_profile: プロフィールの編集
+    logout: ログアウト
+    login: ログイン
+    sign_up: サインアップ
+    sign_in_with: サインイン：
+    forget_my_password: パスワードを忘れた?
+    not_receive_confirmation_instructions?: 確認事項の指示が届いてませんか？
+    not_receive_unlock_instructions?: ロック解除の指示が届いていませんか？
+    change_my_password: パスワードを変更する
+
+  user_page:
+    index: "%{model}一覧"
+    show: "%{model}詳細"
+  devise:
+    page:
+      sign_up: サインアップ
+      forget_my_password: パスワードを忘れた?
+      login: ログイン
+    submit:
+      login: ログイン
+      sign_up: サインアップ
+      password_instructions: 再設定メールの送信
+      change_password: パスワードの変更
+    check_box:
+      remember_me: パスワードの保存
+    confirmations:
+      confirmed: "メールアドレスの確認が完了しました。"
+      send_instructions: "数分以内に、メールアドレスの確認方法についての指示が含まれたメールが送られます。"
+      send_paranoid_instructions: "データベースにメールアドレスが存在する場合、数分以内にメールアドレスの確認方法についての指示が含まれたメールが送られます。"
+    failure:
+      already_authenticated: "すでにサインインされています。"
+      inactive: "アカウントがまだ有効化されていません。"
+      invalid: "無効な %{authentication_keys} またはパスワードです。"
+      locked: "アカウントがロックされています。"
+      last_attempt: "次でアカウントがロックされます。"
+      not_found_in_database: "無効な %{authentication_keys} またはパスワードです。"
+      timeout: "セッションの有効期限が切れました。続行するには、再度サインインしてください。"
+      unauthenticated: "続行する前に、サインインまたは新規登録する必要があります。"
+      unconfirmed: "続行する前に、メールアドレスの確認を行ってください。"
+    mailer:
+      confirmation_instructions:
+        subject: "確認手順"
+      reset_password_instructions:
+        subject: "パスワードリセット手順"
+      unlock_instructions:
+        subject: "アカウントロック解除手順"
+      email_changed:
+        subject: "メールアドレス変更完了"
+      password_change:
+        subject: "パスワード変更完了"
+    omniauth_callbacks:
+      failure: "%{kind} からの認証に失敗しました。理由: \"%{reason}\"。"
+      success: "%{kind} アカウントからの認証が成功しました。"
+    passwords:
+      no_token: "パスワードリセットのメールからアクセスしてください。パスワードリセットのメールからアクセスしている場合は、提供された完全なURLを使用していることを確認してください。"
+      send_instructions: "数分以内に、パスワードリセット方法についての指示が含まれたメールが送信されます。"
+      send_paranoid_instructions: "データベースにメールアドレスが存在する場合、数分以内にパスワードリカバリーリンクがメールアドレスに届きます。"
+      updated: "パスワードが正常に変更されました。"
+      updated_not_active: "パスワードが正常に変更されました。"
+    registrations:
+      destroyed: "さようなら！アカウントは正常に削除されました。またお会いできることを願っています。"
+      signed_up: "ようこそ！正常にサインアップしました。"
+      signed_up_but_inactive: "正常にサインアップしました。ただし、アカウントがまだ有効化されていないため、サインインできませんでした。"
+      signed_up_but_locked: "正常にサインアップしました。ただし、アカウントがロックされているため、サインインできませんでした。"
+      signed_up_but_unconfirmed: "確認リンクが含まれたメッセージがメールアドレスに送信されました。アカウントを有効化するためにリンクをクリックしてください。"
+      update_needs_confirmation: "アカウントは正常に更新されましたが、新しいメールアドレスを確認する必要があります。メールを確認し、確認リンクをクリックして新しいメールアドレスを確認してください。"
+      updated: "アカウントが正常に更新されました。"
+      updated_but_not_signed_in: "アカウントが正常に更新されましたが、パスワードが変更されたため、再度サインインする必要があります。"
+    sessions:
+      signed_in: "ログインしました。"
+      signed_out: "ログアウトしました。"
+      already_signed_out: "ログアウトしました。"
+    unlocks:
+      send_instructions: "数分以内に、アカウントロック解除方法についての指示が含まれたメールを受け取ります。"
+      send_paranoid_instructions: "アカウントが存在する場合、数分以内にアカウントロック解除方法についての指示が含まれたメールが送信されます。"
+      unlocked: "アカウントが正常にロック解除されました。続行するにはサインインしてください。"
   views:
     common:
       show: "この%{name}を表示"
