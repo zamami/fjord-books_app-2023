@@ -1,7 +1,11 @@
 <h1><%= t('views.common.title_show', name: Book.model_name.human) %></h1>
 
+<% if flash[:no_comment].present? %>
+  <p id="alert"><%= flash[:no_comment] %></p>
+<% end %>
+
 <div class="show-item">
-  <%= render @book %>
+  <%= render partial: 'books/book', locals: { book: @book } %>
 </div>
 
 <nav class="page-nav">
@@ -10,3 +14,8 @@
 
   <%= button_to t('views.common.destroy', name: Book.model_name.human.downcase), @book, method: :delete %>
 </nav>
+
+<h2><%= Comment.model_name.human %></h2>
+
+<%= render partial: 'comments/comments', locals: {commentable: @book} %>
+<%= render partial: 'comments/form', locals: {commentable: @book} %>
