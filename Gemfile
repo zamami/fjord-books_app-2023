@@ -71,6 +71,7 @@ group :development do
   gem 'letter_opener_web'
   gem 'rubocop-fjord', require: false
   gem 'rubocop-rails', require: false
+  gem 'ruby-vips'
 end
 
 group :test do
