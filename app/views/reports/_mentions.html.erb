@@ -1,0 +1,13 @@
+<div class="mentions-container">
+  <% if @mentions.exists? %>
+    <strong>この日報は以下の日報から言及されています</strong>
+    <ul>
+      <% @mentions.each do |mention| %>
+        <li>
+          <%= link_to mention.title, report_path(mention) %> (<%= l mention.created_at, format: :short %>)
+        </li>
+      <% end %>
+    </ul>
+  <% end %>
+
+</div>
