@@ -3,8 +3,8 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  test '#name_or_email' do
-    alice = users(:Alice)
+  test '名前かメールを表示する' do
+    alice = users(:alice)
     assert_equal 'alice', alice.name_or_email
 
     alice.name = ''

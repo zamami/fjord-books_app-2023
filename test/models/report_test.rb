@@ -3,7 +3,7 @@
 require 'test_helper'
 
 class ReportTest < ActiveSupport::TestCase
-  test '#レポートを書いたユーザーかどうか？' do
+  test 'レポートを書いたユーザーかどうか？' do
     alice = users(:alice)
     bob = users(:bob)
     alice_report = reports(:alice_report)
@@ -11,13 +11,13 @@ class ReportTest < ActiveSupport::TestCase
     assert_not alice_report.editable?(bob)
   end
 
-  test '#レポートが作られた日付が正しいか確認' do
+  test 'レポートが作られた日付が正しいか確認' do
     alice_report = reports(:alice_report)
     today = Time.zone.today
     assert_equal today, alice_report.created_on
   end
 
-  test '#メンションしているか、されているか？' do
+  test 'メンションしているか、されているか？' do
     alice_report = reports(:alice_report)
     bob_report = reports(:bob_report)
     assert_not_includes alice_report.mentioning_reports, bob_report
